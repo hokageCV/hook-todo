@@ -1,11 +1,11 @@
 import { Schema, model } from "mongoose";
 
 type TodoType = {
-  title: string;
+  task: string;
 };
 
 const todoSchema = new Schema<TodoType>({
-  title: String,
+  task: String,
 });
 
 const TodoModel = model<TodoType>("Todo", todoSchema);

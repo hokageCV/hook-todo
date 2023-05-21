@@ -1,10 +1,11 @@
 import Navbar from "./components/layouts/Navbar";
+import Home from "./components/pages/Home";
 
 function App() {
   return (
     <>
       <Navbar />
-      <h1>rasengan</h1>
+      <Home />
     </>
   );
 }

@@ -36,11 +36,12 @@ export const createTodo = async (req: Request, res: Response) => {
 };
 
 export const updateTodo = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const { taskId } = req.params;
   const { task } = req.body;
 
   try {
-    const updatedTodo = await TodoModel.findByIdAndUpdate(id, { task }, { new: true });
+    const updatedTodo = await TodoModel.findByIdAndUpdate(taskId, { task }, { new: true });
+    if (!updatedTodo) return res.status(404).json({ message: "Todo not found" });
 
     return res.status(200).json({
       data: {
@@ -55,9 +56,10 @@ export const updateTodo = async (req: Request, res: Response) => {
 };
 
 export const deleteTodo = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const { taskId } = req.params;
   try {
-    const deletedTodo = await TodoModel.findByIdAndDelete(id);
+    const deletedTodo = await TodoModel.findByIdAndDelete(taskId);
+    if (!deletedTodo) return res.status(404).json({ message: "Todo not found" });
 
     return res.status(200).json({
       data: {

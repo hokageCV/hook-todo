@@ -1,12 +1,8 @@
 import { Box, Flex, IconButton, Text } from "@chakra-ui/react";
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
+import type { Todo } from "../../types";
 
-type TaskCardProps = {
-  taskID: number;
-  task: string;
-};
-
-function TaskCard({ task, taskID }: TaskCardProps) {
+function TaskCard({ task }: Todo) {
   return (
     <Box bg="cardBG" borderRadius={10} m={1} px={3} py={1} minW="300px" maxW="100%">
       <Flex justify="space-between" alignItems="center">

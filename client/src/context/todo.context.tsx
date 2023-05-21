@@ -1,11 +1,8 @@
-import React, { createContext } from "react";
+import React, { createContext, useContext } from "react";
 import useTodos from "../hooks/useTodos";
+import type { Todo } from "../types";
 
 // ==================================
-type Todo = {
-  _id: string;
-  task: string;
-};
 
 type TodoContext = {
   todoList: Todo[];
@@ -29,4 +26,8 @@ export const TodoContextProvider: React.FC<TodoProviderProps> = ({ children }) =
       {children}
     </TodoContext.Provider>
   );
+};
+
+export const useTodoContextProvider = () => {
+  return useContext(TodoContext);
 };

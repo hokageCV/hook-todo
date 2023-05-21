@@ -7,8 +7,8 @@ import type { Todo } from "../types";
 type TodoContext = {
   todoList: Todo[];
   addTodo: (task: string) => void;
-  updateTodoItem: (taskId: string, task: string) => void;
-  deleteTodoItem: (taskId: string) => void;
+  updateTodoItem: (_id: string, task: string) => void;
+  deleteTodoItem: (_id: string) => void;
 };
 
 type TodoProviderProps = {

@@ -1,14 +1,14 @@
 import { Center, Container } from "@chakra-ui/react";
-import InputTask from "../layouts/InputTask";
-import DisplayTasks from "../layouts/DisplayTasks";
+import InputTodo from "../layouts/InputTodo";
+import DisplayTodos from "../layouts/DisplayTodos";
 
 function Home() {
   return (
     <Container>
       <Center flexDirection="column">
         <h1>Home</h1>
-        <InputTask />
-        <DisplayTasks />
+        <InputTodo />
+        <DisplayTodos />
       </Center>
     </Container>
   );

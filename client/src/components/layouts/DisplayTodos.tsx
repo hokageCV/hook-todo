@@ -1,8 +1,8 @@
 import { Box } from "@chakra-ui/react";
-import TaskCard from "./TaskCard";
+import TodoCard from "./TodoCard";
 import { useTodoContextProvider } from "../../context/todo.context";
 
-function DisplayTasks() {
+function DisplayTodos() {
   const { todoList } = useTodoContextProvider();
   // const taskList = [
   //   {
@@ -22,10 +22,10 @@ function DisplayTasks() {
   return (
     <Box mt={5}>
       {todoList.map((task) => (
-        <TaskCard key={task._id} task={task.task} _id={task._id} />
+        <TodoCard key={task._id} task={task.task} _id={task._id} />
       ))}
     </Box>
   );
 }
 
-export default DisplayTasks;
+export default DisplayTodos;

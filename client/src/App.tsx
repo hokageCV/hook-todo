@@ -4,11 +4,11 @@ import Home from "./components/pages/Home";
 import useTodos from "./hooks/useTodos";
 
 function App() {
-  const { todoList, fetchTodos } = useTodos();
+  const { fetchTodos } = useTodos();
 
   useEffect(() => {
     fetchTodos();
-  }, [todoList]);
+  }, []);
 
   return (
     <>

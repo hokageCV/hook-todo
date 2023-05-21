@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { createTodo, deleteTodo, getAllTodos, updateTodo } from "../utils/todo.api";
-
-type Todo = {
-  _id: string;
-  task: string;
-};
+import type { Todo } from "../types";
 
 const useTodos = () => {
   const [todoList, setTodoList] = useState<Todo[]>([]);

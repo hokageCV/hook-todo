@@ -57,7 +57,7 @@ function InputTodo() {
           <PopoverTrigger>
             <IconButton aria-label="Add todo" icon={<AddIcon />} onClick={handleSubmit} />
           </PopoverTrigger>
-          <PopoverContent bg="baseBG2" color="cardText" borderColor="baseBG3">
+          <PopoverContent bg="baseBG.2" color="cardText" borderColor="baseBG.3">
             <PopoverArrow />
             <PopoverHeader fontSize="md" pb={0}>
               Empty Todo

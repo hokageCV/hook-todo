@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <InputContextProvider>
       <TodoContextProvider>
         <ChakraProvider theme={theme}>
-          <Box bg="baseBG" minH="100vh">
+          <Box bg="baseBG.1" minH="100vh">
             <App />
           </Box>
         </ChakraProvider>

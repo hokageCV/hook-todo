@@ -13,6 +13,7 @@ const useTodos = () => {
   const fetchTodos = async () => {
     try {
       const todos = await getAllTodosFromDB();
+
       setTodoList(todos);
     } catch (error) {
       console.error("Error fetching todos:", error);

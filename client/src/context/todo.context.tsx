@@ -6,6 +6,7 @@ import type { Todo } from "../types";
 
 type TodoContext = {
   todoList: Todo[];
+  fetchTodos: () => void;
   addTodo: (task: string) => void;
   updateTodoItem: (_id: string, task: string) => void;
   deleteTodoItem: (_id: string) => void;
@@ -19,10 +20,10 @@ type TodoProviderProps = {
 const TodoContext = createContext<TodoContext>({} as TodoContext);
 
 export const TodoContextProvider: React.FC<TodoProviderProps> = ({ children }) => {
-  const { todoList, addTodo, updateTodoItem, deleteTodoItem } = useTodos();
+  const { todoList, fetchTodos, addTodo, updateTodoItem, deleteTodoItem } = useTodos();
 
   return (
-    <TodoContext.Provider value={{ todoList, addTodo, updateTodoItem, deleteTodoItem }}>
+    <TodoContext.Provider value={{ todoList, fetchTodos, addTodo, updateTodoItem, deleteTodoItem }}>
       {children}
     </TodoContext.Provider>
   );

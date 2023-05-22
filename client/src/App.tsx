@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import Navbar from "./components/layouts/Navbar";
 import Home from "./components/pages/Home";
-import useTodos from "./hooks/useTodos";
+import { useTodoContextProvider } from "./context/todo.context";
 
 function App() {
-  const { fetchTodos } = useTodos();
+  const { fetchTodos } = useTodoContextProvider();
 
   useEffect(() => {
     fetchTodos();

@@ -10,6 +10,7 @@ const useInput = () => {
 
   return {
     input,
+    setInput,
     handleInputChange,
     resetInput,
   };

@@ -2,11 +2,16 @@ import { Box, Flex, IconButton, Text } from "@chakra-ui/react";
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import type { Todo } from "../../types";
 import { useTodoContextProvider } from "../../context/todo.context";
+import { useInputContextProvider } from "../../context/input.context";
 
 function TodoCard({ task, _id }: Todo) {
   const { deleteTodoItem } = useTodoContextProvider();
+  const { setInput } = useInputContextProvider();
 
-  const handleDelete = () => {
+  const handleDelete = () => deleteTodoItem(_id);
+
+  const handleEdit = () => {
+    setInput(task);
     deleteTodoItem(_id);
   };
 
@@ -21,6 +26,7 @@ function TodoCard({ task, _id }: Todo) {
             colorScheme="blue"
             variant="ghost"
             size="md"
+            onClick={handleEdit}
           />
           <IconButton
             aria-label="Delete task"

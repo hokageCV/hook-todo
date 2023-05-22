@@ -8,7 +8,7 @@ export const getAllTodo = async (req: Request, res: Response) => {
     return res.status(200).json({
       data: {
         message: "All todos fetched successfully",
-        allTodo: todos,
+        todo: todos,
       },
     });
   } catch (err: any) {
@@ -46,7 +46,7 @@ export const updateTodo = async (req: Request, res: Response) => {
     return res.status(200).json({
       data: {
         message: "Todo updated successfully",
-        updatedTodo: updatedTodo,
+        todo: updatedTodo,
       },
     });
   } catch (err: any) {
@@ -64,7 +64,7 @@ export const deleteTodo = async (req: Request, res: Response) => {
     return res.status(200).json({
       data: {
         message: "Todo deleted successfully",
-        deletedTodo: deletedTodo,
+        todo: deletedTodo,
       },
     });
   } catch (err: any) {

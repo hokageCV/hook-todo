@@ -13,7 +13,7 @@ function InputTodo() {
   };
 
   return (
-    <Box mt="10px">
+    <Box mt="20px">
       <Center gap={1}>
         <Input placeholder="Add todo" color="cardText" value={input} onChange={handleInputChange} />
         <IconButton aria-label="Add todo" icon={<AddIcon />} onClick={handleSubmit} />

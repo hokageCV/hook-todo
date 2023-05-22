@@ -6,7 +6,6 @@ function Home() {
   return (
     <Container>
       <Center flexDirection="column">
-        <h1>Home</h1>
         <InputTodo />
         <DisplayTodos />
       </Center>

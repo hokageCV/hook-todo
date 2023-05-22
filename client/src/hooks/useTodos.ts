@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { createTodo, deleteTodo, getAllTodos, updateTodo } from "../utils/todo.api";
+import {
+  createTodoInDB,
+  deleteTodoInDB,
+  getAllTodosFromDB,
+  updateTodoInDB,
+} from "../utils/todo.api";
 import type { Todo } from "../types";
 
 const useTodos = () => {
@@ -7,8 +12,8 @@ const useTodos = () => {
 
   const fetchTodos = async () => {
     try {
-      const data = await getAllTodos();
-      setTodoList(data);
+      const todos = await getAllTodosFromDB();
+      setTodoList(todos);
     } catch (error) {
       console.error("Error fetching todos:", error);
     }
@@ -16,8 +21,8 @@ const useTodos = () => {
 
   const addTodo = async (task: string) => {
     try {
-      const data: Todo = await createTodo(task);
-      setTodoList([...todoList, data]);
+      const newTodo = await createTodoInDB(task);
+      setTodoList([...todoList, newTodo]);
     } catch (error) {
       console.error("Error creating todo:", error);
     }
@@ -25,7 +30,7 @@ const useTodos = () => {
 
   const updateTodoItem = async (taskId: string, task: string) => {
     try {
-      await updateTodo(taskId, task);
+      await updateTodoInDB(taskId, task);
       const updatedTodoList: Todo[] = todoList.map((todo) =>
         todo._id === taskId ? { ...todo, task } : todo
       );
@@ -37,7 +42,7 @@ const useTodos = () => {
 
   const deleteTodoItem = async (taskId: string) => {
     try {
-      await deleteTodo(taskId);
+      await deleteTodoInDB(taskId);
       const filteredTodoList = todoList.filter((todo) => todo._id !== taskId);
       setTodoList(filteredTodoList);
     } catch (error) {

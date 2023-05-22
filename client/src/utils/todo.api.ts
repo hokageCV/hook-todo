@@ -1,13 +1,15 @@
 import { SERVER_URL } from "../constants";
 
-export const getAllTodos = async () => {
+export const getAllTodosFromDB = async () => {
   const response = await fetch(`${SERVER_URL}/todo`);
-  const data = await response.json();
+  const responseData = await response.json();
 
-  return data;
+  const todo = responseData.data.todo;
+
+  return todo;
 };
 
-export const createTodo = async (task: string) => {
+export const createTodoInDB = async (task: string) => {
   const response = await fetch(`${SERVER_URL}/todo`, {
     method: "POST",
     headers: {
@@ -15,12 +17,14 @@ export const createTodo = async (task: string) => {
     },
     body: JSON.stringify({ task }),
   });
-  const data = await response.json();
+  const responseData = await response.json();
 
-  return data;
+  const todo = responseData.data.todo;
+
+  return todo;
 };
 
-export const updateTodo = async (taskId: string, task: string) => {
+export const updateTodoInDB = async (taskId: string, task: string) => {
   const response = await fetch(`${SERVER_URL}/todo/${taskId}`, {
     method: "PATCH",
     headers: {
@@ -28,16 +32,20 @@ export const updateTodo = async (taskId: string, task: string) => {
     },
     body: JSON.stringify({ task }),
   });
-  const data = await response.json();
+  const responseData = await response.json();
 
-  return data;
+  const todo = responseData.data.todo;
+
+  return todo;
 };
 
-export const deleteTodo = async (taskId: string) => {
+export const deleteTodoInDB = async (taskId: string) => {
   const response = await fetch(`${SERVER_URL}/todo/${taskId}`, {
     method: "DELETE",
   });
-  const data = await response.json();
+  const responseData = await response.json();
 
-  return data;
+  const todo = responseData.data.todo;
+
+  return todo;
 };
